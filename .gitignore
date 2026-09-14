@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+venv/
+.env
+backend/helmet_data.db
+.DS_Store
