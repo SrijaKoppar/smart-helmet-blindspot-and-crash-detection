@@ -1,20 +1,14 @@
 """
 app.py
 Entry point for the Smart Helmet dashboard backend (Flask).
-
-Phase 1 scope:
-- Initialize the database on startup
-- Provide a /health endpoint to confirm the server + DB are working
-
-API endpoints (ingest, latest, history, stats, simulate) are added
-in Phase 2 - kept out of this file for now to keep Phase 1 minimal
-and easy to verify.
 """
 
 from flask import Flask, jsonify
 from models import init_db, get_connection
+from routes import api          # <-- ADD THIS LINE
 
 app = Flask(__name__)
+app.register_blueprint(api)     # <-- ADD THIS LINE
 
 
 @app.route("/health", methods=["GET"])
@@ -36,6 +30,4 @@ def health_check():
 
 if __name__ == "__main__":
     init_db()
-    # host="0.0.0.0" so the ESP32 (on the same WiFi network) can reach
-    # this server later in Phase 5, not just localhost
     app.run(host="0.0.0.0", port=5000, debug=True)
