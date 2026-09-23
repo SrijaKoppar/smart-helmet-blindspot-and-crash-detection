@@ -35,8 +35,11 @@ def init_db():
             right_distance REAL,
             left_severity TEXT DEFAULT 'none',
             right_severity TEXT DEFAULT 'none',
+            left_ttc REAL,
+            right_ttc REAL,
             head_turn_active INTEGER DEFAULT 0,
             crash_flag INTEGER DEFAULT 0,
+            crash_stage TEXT DEFAULT 'none',
             active_alert TEXT DEFAULT 'none',
             event_type TEXT DEFAULT 'sensor_update',
             notes TEXT DEFAULT ''
