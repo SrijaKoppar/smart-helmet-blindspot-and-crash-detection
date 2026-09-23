@@ -21,6 +21,12 @@ st.set_page_config(
     layout="wide"
 )
 
+with st.sidebar:
+    st.markdown("### 🪖 Smart Helmet")
+    st.caption("Adaptive Blind-Spot & Crash Alert Arbitration")
+    st.divider()
+    st.caption("Use the pages above to switch between the Live Dashboard and the Event Log.")
+
 # Auto-refresh the whole page every 1.5 seconds
 st_autorefresh(interval=1500, key="live_refresh")
 
